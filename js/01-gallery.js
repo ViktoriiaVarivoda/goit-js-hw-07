@@ -26,9 +26,13 @@ function createColorCardsGallery(galleryItems) {
 galleryContainer.addEventListener('click', onGalleryContainerClick);
 
 function onGalleryContainerClick(evt) {
+    evt.preventDefault();
     const isGalleryEl = evt.target.classList.contains('gallery__image');
     if (!isGalleryEl) {
         return;
     }
-    console.log(evt.target.dataset.source);   
+    const imgSource = evt.target.dataset.source;   
+    const modal = basicLightbox.create(
+    `<img width="1400" height="900" src="${imgSource}"> `
+    ).show();  
     }
